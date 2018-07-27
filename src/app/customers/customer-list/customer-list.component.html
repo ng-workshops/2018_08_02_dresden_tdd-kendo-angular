@@ -1,0 +1,28 @@
+<div class="customers-search">
+  <kendo-textbox-container floatingLabel="Search">
+    <input kendoTextBox [formControl]="searchTerm" />
+  </kendo-textbox-container>
+</div>
+
+<br/>
+
+<kendo-grid [data]="customers" [sort]="sort" (add)="addCustomer()" (edit)="editCustomer($event)" (remove)="deleteCustomer($event)">
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Add customer</button>
+  </ng-template>
+
+  <kendo-grid-column field="id" title="ID" width="40">
+  </kendo-grid-column>
+  <kendo-grid-column field="name" title="Name" width="250">
+  </kendo-grid-column>
+  <kendo-grid-column field="firstname" title="Firstname">
+  </kendo-grid-column>
+  <kendo-grid-column field="numberOfOrders" title="Orders" width="80">
+  </kendo-grid-column>
+  <kendo-grid-command-column title="Actions">
+    <ng-template kendoGridCellTemplate>
+      <button kendoGridEditCommand [primary]="true">Edit</button>
+      <button kendoGridRemoveCommand>Delete</button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>

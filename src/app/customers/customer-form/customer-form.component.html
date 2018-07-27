@@ -1,0 +1,28 @@
+<h1>Edit customer</h1>
+
+<form class="k-form" novalidate [formGroup]="form" (ngSubmit)="submit()">
+  <label class="k-form-field">
+    <span>
+      Name <span class="k-required">*</span>
+    </span>
+    <input kendoTextBox formControlName="name" />
+  </label>
+
+  <label class="k-form-field">
+    <span>Firstname</span>
+    <input kendoTextBox formControlName="firstname" />
+  </label>
+
+  <label class="k-form-field">
+    <span> Number of orders </span>
+    <kendo-numerictextbox formControlName="numberOfOrders" [min]="0" [max]="100" [format]="'n0'">
+    </kendo-numerictextbox>
+  </label>
+
+  <div class="form-row">
+    <button kendoButton type="submit" [disabled]="this.form.invalid" [primary]="true">Save</button>
+    <button kendoButton type="button" (click)="cancel()">Cancel</button>
+  </div>
+</form>
+
+<pre>form.getRawValue() = <br/>{{ form.getRawValue() | json }}</pre>
